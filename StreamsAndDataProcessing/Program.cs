@@ -44,25 +44,37 @@ namespace StreamsAndDataProcessing
                         crimeResult.TimeOfIncident = timeOfIncident;
                     }
 
-                    crimeResult.Address = values[1];
+                    crimeResult.Address = values[1].Trim();
 
                     if (int.TryParse(values[2], out parseInt))
                     {
                         crimeResult.District = parseInt;
                     }
 
-                    crimeResult.Beat = values[3];
+                    crimeResult.Beat = values[3].Trim();
 
                     if (int.TryParse(values[4], out parseInt))
                     {
                         crimeResult.Grid = parseInt;
                     }
 
-                    crimeResult.Description = values[5];
+                    crimeResult.Description = values[5].Trim();
 
                     if (int.TryParse(values[6], out parseInt))
                     {
                         crimeResult.NCIC_Code = parseInt;
+                    }
+
+                    double latitude;
+                    if (double.TryParse(values[7], out latitude))
+                    {
+                        crimeResult.Latitude = latitude;
+                    }
+
+                    double longitude;
+                    if (double.TryParse(values[8], out longitude))
+                    {
+                        crimeResult.Longitude = longitude;
                     }
 
                     crimeResults.Add(crimeResult);
